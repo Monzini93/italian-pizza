@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fazer Pedido - Italian Pizza</title>
   <script src="../js/tailwind-config.js"></script>
+  <script>
+    if (typeof tailwind === 'undefined') { tailwind = {}; }
+    tailwind.config = tailwind.config || { theme: { extend: { fontFamily: { sans: ['Outfit','system-ui','sans-serif'], display: ['Playfair Display','serif'] }, colors: { italian: { red: '#dc2626', 'red-dark': '#b91c1c', green: '#16a34a', 'green-dark': '#15803d', brown: '#78350f', 'brown-light': '#92400e', gold: '#fbbf24', 'gold-light': '#fef3c7' } } } } };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +45,7 @@
       <span id="resumo-itens" class="text-italian-brown font-medium">0 itens</span>
       <span class="text-lg font-bold text-italian-red">Total: R$ <span id="total-carrinho">0,00</span></span>
     </div>
-    <button type="button" id="btn-enviar-pedido" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-italian-red text-white font-semibold shadow-lg hover:bg-italian-red-dark active:scale-[0.98] transition-all duration-200">
+    <button type="button" id="btn-enviar-pedido" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold shadow-lg active:scale-[0.98] transition-all duration-200" style="background-color: #dc2626; color: white;">
       Fazer pedido
     </button>
   </footer>

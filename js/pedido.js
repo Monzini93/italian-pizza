@@ -19,9 +19,10 @@
 
   function getCategorias() {
     const cardapio = getCardapio();
+    if (!Array.isArray(cardapio)) return [];
     const cats = {};
     cardapio.forEach(item => {
-      const cat = item.categoria || 'Outros';
+      const cat = String(item.categoria || 'Outros').trim() || 'Outros';
       if (!cats[cat]) cats[cat] = [];
       cats[cat].push(item);
     });
@@ -50,10 +51,15 @@
 
   function renderMenu() {
     const cardapio = getCardapio();
+    if (!Array.isArray(cardapio)) {
+      menuGrid.innerHTML = '<p class="text-italian-brown-light col-span-2">Carregando cardápio...</p>';
+      return;
+    }
     const categorias = getCategorias();
     if (categorias.length > 0 && categoriaAtiva === null) categoriaAtiva = categorias[0];
-    const itens = categoriaAtiva
-      ? cardapio.filter(item => (item.categoria || 'Outros') === categoriaAtiva)
+    const catAtiva = categoriaAtiva ? String(categoriaAtiva).trim() : null;
+    const itens = catAtiva
+      ? cardapio.filter(item => (String(item.categoria || 'Outros').trim()) === catAtiva)
       : cardapio;
     menuGrid.innerHTML = itens.map(item => {
       const qtd = carrinho.find(c => c.id === item.id && !c.observacao)?.quantidade || 0;

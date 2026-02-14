@@ -81,9 +81,10 @@
 
   function getCategorias() {
     var cardapio = getCardapio();
+    if (!Array.isArray(cardapio)) return [];
     var cats = {};
     cardapio.forEach(function (item) {
-      var cat = item.categoria || 'Outros';
+      var cat = String(item.categoria || 'Outros').trim() || 'Outros';
       if (!cats[cat]) cats[cat] = [];
       cats[cat].push(item);
     });
@@ -114,10 +115,15 @@
 
   function renderMenu() {
     var cardapio = getCardapio();
+    if (!Array.isArray(cardapio)) {
+      menuGrid.innerHTML = '<p class="text-italian-brown-light col-span-2">Carregando cardápio...</p>';
+      return;
+    }
     var categorias = getCategorias();
     if (categorias.length > 0 && categoriaAtiva === null) categoriaAtiva = categorias[0];
-    var itens = categoriaAtiva
-      ? cardapio.filter(function (item) { return (item.categoria || 'Outros') === categoriaAtiva; })
+    var catAtiva = categoriaAtiva ? String(categoriaAtiva).trim() : null;
+    var itens = catAtiva
+      ? cardapio.filter(function (item) { return (String(item.categoria || 'Outros').trim()) === catAtiva; })
       : cardapio;
     var html = itens.map(function (item) {
       var qtd = carrinho.find(function (c) { return c.id === item.id; }) ? (carrinho.find(function (c) { return c.id === item.id; }).quantidade || 0) : 0;
