@@ -1,6 +1,6 @@
 /**
- * Camada de dados - LocalStorage
- * Mesas, pedidos, pagamentos
+ * Camada de dados – LocalStorage
+ * Mesas, pedidos, cardápio, pagamentos, fechamentos de caixa, pedidos viagem.
  */
 
 const STORAGE_KEYS = {

@@ -4,34 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resumo mensal - Italian Pizza</title>
+  <script src="../js/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] },
-          colors: {
-            italian: {
-              red: '#dc2626', 'red-dark': '#b91c1c',
-              green: '#16a34a', 'green-dark': '#15803d',
-              brown: '#78350f', 'brown-light': '#92400e',
-              gold: '#fbbf24', 'gold-light': '#fef3c7',
-            }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen bg-amber-50 font-sans text-italian-brown antialiased">
-  <script src="js/auth.js"></script>
+  <script src="../js/auth.js"></script>
   <nav class="bg-italian-brown text-white shadow-lg">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <img src="logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
+        <img src="../assets/logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
         <h1 class="font-display text-xl font-bold">Italian Pizza – Painel</h1>
       </div>
       <div class="flex gap-2 flex-wrap items-center">
@@ -48,18 +32,10 @@
   <main class="max-w-6xl mx-auto px-4 py-8">
     <h2 class="font-display text-2xl font-bold text-italian-brown mb-2">Resumo mensal – Caixa fechado</h2>
     <p class="text-italian-brown-light text-sm mb-6">Valor total registrado por dia (após fechar o caixa). Use para conferir o valor geral do mês.</p>
-
     <div id="resumo-mensal" class="space-y-6"></div>
   </main>
 
-  <script src="js/data.js"></script>
-  <script src="js/admin-caixa-resumo.js"></script>
-  <script>
-    document.getElementById('btn-sair').addEventListener('click', function (e) {
-      e.preventDefault();
-      sessionStorage.removeItem('pizzaria_admin_logado');
-      window.location.href = 'login.html';
-    });
-  </script>
+  <script src="../js/data.js"></script>
+  <script src="../js/admin-caixa-resumo.js"></script>
 </body>
 </html>

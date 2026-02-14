@@ -4,28 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedidos viagem - Italian Pizza Painel</title>
+  <script src="../js/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] },
-          colors: {
-            italian: { red: '#dc2626', 'red-dark': '#b91c1c', green: '#16a34a', brown: '#78350f', 'brown-light': '#92400e', gold: '#fbbf24', 'gold-light': '#fef3c7' }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen bg-amber-50 font-sans text-italian-brown antialiased">
-  <script src="js/auth.js"></script>
+  <script src="../js/auth.js"></script>
   <nav class="bg-italian-brown text-white shadow-lg">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <img src="logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
+        <img src="../assets/logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
         <h1 class="font-display text-xl font-bold">Italian Pizza – Painel</h1>
       </div>
       <div class="flex gap-2 flex-wrap items-center">
@@ -40,18 +29,11 @@
   </nav>
   <main class="max-w-6xl mx-auto px-4 py-8">
     <h2 class="font-display text-2xl font-bold text-italian-brown mb-2">Pedidos viagem</h2>
-    <p class="text-italian-brown-light text-sm mb-6">Para os pedidos aparecerem aqui, o cliente deve acessar <strong class="text-italian-brown">pedido-casa.html</strong> pelo mesmo endereço (ex: <span id="url-pedido-casa" class="font-mono text-xs"></span>/pedido-casa.html).</p>
+    <p class="text-italian-brown-light text-sm mb-6">Para os pedidos aparecerem aqui, o cliente deve acessar <strong class="text-italian-brown">pedido em casa</strong> pelo mesmo endereço (ex: <span id="url-pedido-casa" class="font-mono text-xs"></span>/cliente/pedido-casa.html).</p>
     <div id="lista-pedidos" class="space-y-4"></div>
     <p id="msg-vazio" class="text-italian-brown-light text-center py-8 hidden">Nenhum pedido de viagem no momento.</p>
   </main>
-  <script src="js/data.js"></script>
-  <script src="js/admin-pedidos-viagem.js"></script>
-  <script>
-    document.getElementById('btn-sair').addEventListener('click', function (e) {
-      e.preventDefault();
-      sessionStorage.removeItem('pizzaria_admin_logado');
-      window.location.href = 'login.html';
-    });
-  </script>
+  <script src="../js/data.js"></script>
+  <script src="../js/admin-pedidos-viagem.js"></script>
 </body>
 </html>

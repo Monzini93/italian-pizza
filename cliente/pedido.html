@@ -4,37 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fazer Pedido - Italian Pizza</title>
+  <script src="../js/tailwind-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] },
-          colors: {
-            italian: {
-              red: '#dc2626',
-              'red-dark': '#b91c1c',
-              green: '#16a34a',
-              'green-dark': '#15803d',
-              brown: '#78350f',
-              'brown-light': '#92400e',
-              gold: '#fbbf24',
-              'gold-light': '#fef3c7',
-            }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen bg-gradient-to-b from-amber-50 to-italian-gold-light font-sans text-italian-brown antialiased">
-  <!-- Header com logo -->
   <header class="bg-white shadow-lg border-b-4 border-italian-red">
     <div class="max-w-4xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <img src="logo_pizzaria.avif" alt="Italian Pizza" class="h-20 w-20 sm:h-24 sm:w-24 object-contain rounded-full flex-shrink-0" />
+      <img src="../assets/logo_pizzaria.avif" alt="Italian Pizza" class="h-20 w-20 sm:h-24 sm:w-24 object-contain rounded-full flex-shrink-0" />
       <div class="text-center sm:text-left">
         <h1 class="font-display text-2xl sm:text-3xl font-bold text-italian-brown">Italian Pizza</h1>
         <p class="mt-0.5 text-italian-brown-light text-sm">Monte seu pedido pela mesa</p>
@@ -69,7 +48,7 @@
 
   <div id="modal-confirma" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
     <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
-      <div class="px-6 py-5 border-b border-amber-200 flex items-center justify-between">
+      <div class="px-6 py-5 border-b border-amber-200 flex justify-between items-center">
         <h2 class="font-display text-xl font-bold text-italian-brown">Pedido enviado</h2>
         <button type="button" class="fechar-modal text-2xl text-stone-400 hover:text-stone-600 leading-none" aria-label="Fechar">&times;</button>
       </div>
@@ -84,7 +63,7 @@
     </div>
   </div>
 
-  <script src="js/data.js"></script>
-  <script src="js/pedido.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/pedido.js"></script>
 </body>
 </html>
