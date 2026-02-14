@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo - Italian Pizza</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] },
+          colors: {
+            italian: {
+              red: '#dc2626', 'red-dark': '#b91c1c',
+              green: '#16a34a', 'green-dark': '#15803d',
+              brown: '#78350f', 'brown-light': '#92400e',
+              gold: '#fbbf24', 'gold-light': '#fef3c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-amber-50 font-sans text-italian-brown antialiased">
+  <script src="js/auth.js"></script>
+  <nav class="bg-italian-brown text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <img src="logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
+        <h1 class="font-display text-xl font-bold">Italian Pizza – Painel</h1>
+      </div>
+      <div class="flex gap-2 flex-wrap items-center">
+        <a href="admin.html" class="px-4 py-2 rounded-xl bg-italian-red font-medium">Mesas e Pedidos</a>
+        <a href="admin-caixa.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Conferência de Caixa</a>
+        <a href="admin-caixa-resumo.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Resumo mensal</a>
+        <a href="admin-cardapio.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Cardápio</a>
+        <a href="admin-pedidos-viagem.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Pedidos viagem</a>
+        <a href="login.html" id="btn-sair" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-red-600/80 font-medium">Sair</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <p class="mb-4 p-3 rounded-xl bg-italian-gold-light border border-amber-300 text-sm text-italian-brown">
+      <strong>Dica:</strong> Para os pedidos dos clientes aparecerem aqui, use o <strong>mesmo endereço</strong>: <span id="url-pedido-exemplo" class="font-mono text-xs"></span>/pedido.html
+    </p>
+
+    <section class="bg-white rounded-2xl shadow-xl border border-amber-200 p-6 mb-6">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+        <h2 class="font-display text-2xl font-bold text-italian-brown">Mesas</h2>
+        <button type="button" id="btn-nova-mesa" class="px-5 py-2.5 rounded-xl bg-italian-red text-white font-semibold hover:bg-italian-red-dark transition">
+          + Nova mesa
+        </button>
+      </div>
+      <div id="mesas-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+    </section>
+
+    <section id="conta-mesa-section" class="bg-white rounded-2xl shadow-xl border border-amber-200 p-6 hidden">
+      <h2 class="font-display text-xl font-bold text-italian-brown mb-4">Conta – Mesa <span id="conta-mesa-numero"></span></h2>
+      <ul id="conta-itens" class="divide-y divide-amber-200"></ul>
+      <div class="mt-4 pt-4 border-t-2 border-amber-200 flex justify-between text-lg font-bold text-italian-red">
+        <span>Total</span>
+        <span id="conta-total">R$ 0,00</span>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button type="button" id="btn-imprimir" class="px-5 py-2.5 rounded-xl bg-italian-red text-white font-semibold hover:bg-italian-red-dark transition">Imprimir conta</button>
+        <button type="button" id="btn-conta-paga" class="px-5 py-2.5 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark transition">Conta paga</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Nova/Editar Mesa -->
+  <div id="modal-mesa" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+      <div class="px-6 py-4 border-b border-amber-200 flex justify-between items-center">
+        <h2 id="modal-mesa-titulo" class="font-display text-xl font-bold text-italian-brown">Nova mesa</h2>
+        <button type="button" class="fechar-modal text-2xl text-stone-400 hover:text-stone-600 leading-none" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="p-6">
+        <label for="input-numero-mesa" class="block text-sm font-semibold text-italian-brown mb-2">Número da mesa</label>
+        <input type="number" id="input-numero-mesa" min="1" placeholder="Ex: 5" class="w-full px-4 py-3 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red focus:border-italian-red outline-none" />
+      </div>
+      <div class="px-6 py-4 bg-amber-50 flex gap-3 justify-end">
+        <button type="button" id="btn-cancelar-mesa" class="px-4 py-2 rounded-xl border-2 border-italian-brown text-italian-brown font-medium hover:bg-amber-100">Cancelar</button>
+        <button type="button" id="btn-salvar-mesa" class="px-5 py-2 rounded-xl bg-italian-red text-white font-semibold hover:bg-italian-red-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Conta Paga -->
+  <div id="modal-pago" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+      <div class="px-6 py-4 border-b border-amber-200 flex justify-between items-center">
+        <h2 class="font-display text-xl font-bold text-italian-brown">Registrar pagamento</h2>
+        <button type="button" class="fechar-modal text-2xl text-stone-400 hover:text-stone-600 leading-none" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="p-6 space-y-4">
+        <p>Valor total: <strong id="modal-valor-total" class="text-italian-red">R$ 0,00</strong></p>
+        <div>
+          <label class="block text-sm font-semibold text-italian-brown mb-2">Forma de pagamento</label>
+          <div class="flex flex-wrap gap-2">
+            <label class="flex-1 min-w-[80px] cursor-pointer">
+              <input type="radio" name="forma-pagamento" value="debito" class="peer sr-only" />
+              <span class="block py-2.5 px-3 rounded-xl border-2 border-amber-300 text-center text-sm font-medium text-italian-brown peer-checked:border-italian-red peer-checked:bg-italian-red/10 peer-checked:ring-2 peer-checked:ring-italian-red/30">Débito</span>
+            </label>
+            <label class="flex-1 min-w-[80px] cursor-pointer">
+              <input type="radio" name="forma-pagamento" value="credito" class="peer sr-only" />
+              <span class="block py-2.5 px-3 rounded-xl border-2 border-amber-300 text-center text-sm font-medium text-italian-brown peer-checked:border-italian-red peer-checked:bg-italian-red/10 peer-checked:ring-2 peer-checked:ring-italian-red/30">Crédito</span>
+            </label>
+            <label class="flex-1 min-w-[80px] cursor-pointer">
+              <input type="radio" name="forma-pagamento" value="pix" class="peer sr-only" checked />
+              <span class="block py-2.5 px-3 rounded-xl border-2 border-amber-300 text-center text-sm font-medium text-italian-brown peer-checked:border-italian-red peer-checked:bg-italian-red/10 peer-checked:ring-2 peer-checked:ring-italian-red/30">PIX</span>
+            </label>
+          </div>
+        </div>
+        <div>
+          <label for="input-valor-recebido" class="block text-sm font-semibold text-italian-brown mb-2">Valor recebido (R$)</label>
+          <input type="number" id="input-valor-recebido" step="0.01" min="0" placeholder="0,00" class="w-full px-4 py-3 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red outline-none" />
+        </div>
+      </div>
+      <div class="px-6 py-4 bg-amber-50 flex gap-3 justify-end">
+        <button type="button" id="btn-cancelar-pago" class="px-4 py-2 rounded-xl border-2 border-italian-brown text-italian-brown font-medium">Cancelar</button>
+        <button type="button" id="btn-confirmar-pago" class="px-5 py-2 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark">Confirmar recebimento</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="area-impressao" class="hidden"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    document.getElementById('btn-sair').addEventListener('click', function (e) {
+      e.preventDefault();
+      sessionStorage.removeItem('pizzaria_admin_logado');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

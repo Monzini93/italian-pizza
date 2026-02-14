@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conferência de Caixa - Italian Pizza</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] },
+          colors: {
+            italian: {
+              red: '#dc2626', 'red-dark': '#b91c1c',
+              green: '#16a34a', 'green-dark': '#15803d',
+              brown: '#78350f', 'brown-light': '#92400e',
+              gold: '#fbbf24', 'gold-light': '#fef3c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-amber-50 font-sans text-italian-brown antialiased">
+  <script src="js/auth.js"></script>
+  <nav class="bg-italian-brown text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <img src="logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
+        <h1 class="font-display text-xl font-bold">Italian Pizza – Painel</h1>
+      </div>
+      <div class="flex gap-2 flex-wrap items-center">
+        <a href="admin.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Mesas e Pedidos</a>
+        <a href="admin-caixa.html" class="px-4 py-2 rounded-xl bg-italian-red font-medium">Conferência de Caixa</a>
+        <a href="admin-caixa-resumo.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Resumo mensal</a>
+        <a href="admin-cardapio.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Cardápio</a>
+        <a href="admin-pedidos-viagem.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Pedidos viagem</a>
+        <a href="login.html" id="btn-sair" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-red-600/80 font-medium">Sair</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <h2 class="font-display text-2xl font-bold text-italian-brown">Fluxo de caixa por dia</h2>
+      <button type="button" id="btn-fechar-caixa" class="px-5 py-2.5 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark shadow-lg transition">
+        Fechar caixa
+      </button>
+    </div>
+    <div id="resumo-dias" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8"></div>
+
+    <section class="bg-white rounded-2xl shadow-xl border border-amber-200 p-6">
+      <h3 class="font-display text-xl font-bold text-italian-brown mb-2">Valores recebidos (conferência)</h3>
+      <p class="text-italian-brown-light text-sm mb-4">Todos os pagamentos registrados para conferência de caixa.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-amber-100 text-italian-brown font-semibold">
+              <th class="text-left p-3 border-b border-amber-200">Data / Hora</th>
+              <th class="text-left p-3 border-b border-amber-200">Origem</th>
+              <th class="text-left p-3 border-b border-amber-200">Forma</th>
+              <th class="text-left p-3 border-b border-amber-200">Valor (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-pagamentos" class="divide-y divide-amber-100"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Fechar caixa -->
+  <div id="modal-fechar-caixa" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+      <div class="px-6 py-4 border-b border-amber-200 flex justify-between items-center">
+        <h2 class="font-display text-xl font-bold text-italian-brown">Fechar caixa</h2>
+        <button type="button" class="fechar-modal-fechar-caixa text-2xl text-stone-400 hover:text-stone-600 leading-none" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="p-6 space-y-3">
+        <p class="text-italian-brown">Data: <strong id="modal-fechar-data"></strong></p>
+        <p class="text-lg">Valor total do dia: <strong id="modal-fechar-valor" class="text-italian-green text-xl"></strong></p>
+        <p class="text-sm text-italian-brown-light">Ao confirmar, este valor ficará registrado no resumo mensal.</p>
+      </div>
+      <div class="px-6 py-4 bg-amber-50 flex gap-3 justify-end">
+        <button type="button" id="btn-cancelar-fechar-caixa" class="px-4 py-2 rounded-xl border-2 border-italian-brown text-italian-brown font-medium">Cancelar</button>
+        <button type="button" id="btn-confirmar-fechar-caixa" class="px-5 py-2 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark">Registrar fechamento</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin-caixa.js"></script>
+  <script>
+    document.getElementById('btn-sair').addEventListener('click', function (e) {
+      e.preventDefault();
+      sessionStorage.removeItem('pizzaria_admin_logado');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
