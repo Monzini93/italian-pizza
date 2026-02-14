@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fazer Pedido - Italian Pizza</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] },
+          colors: {
+            italian: {
+              red: '#dc2626',
+              'red-dark': '#b91c1c',
+              green: '#16a34a',
+              'green-dark': '#15803d',
+              brown: '#78350f',
+              'brown-light': '#92400e',
+              gold: '#fbbf24',
+              'gold-light': '#fef3c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-b from-amber-50 to-italian-gold-light font-sans text-italian-brown antialiased">
+  <!-- Header com logo -->
+  <header class="bg-white shadow-lg border-b-4 border-italian-red">
+    <div class="max-w-4xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <img src="logo_pizzaria.avif" alt="Italian Pizza" class="h-20 w-20 sm:h-24 sm:w-24 object-contain rounded-full flex-shrink-0" />
+      <div class="text-center sm:text-left">
+        <h1 class="font-display text-2xl sm:text-3xl font-bold text-italian-brown">Italian Pizza</h1>
+        <p class="mt-0.5 text-italian-brown-light text-sm">Monte seu pedido pela mesa</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-6 pb-28">
+    <section class="bg-white rounded-2xl shadow-xl border-2 border-amber-200 p-5 mb-6">
+      <label for="select-mesa" class="block text-sm font-semibold text-italian-brown mb-2">Selecione sua mesa</label>
+      <select id="select-mesa" class="w-full px-4 py-3 rounded-xl border-2 border-amber-300 bg-amber-50/50 text-italian-brown font-medium focus:ring-2 focus:ring-italian-red focus:border-italian-red outline-none transition">
+        <option value="">-- Escolha a mesa --</option>
+      </select>
+    </section>
+
+    <section>
+      <h2 class="font-display text-2xl font-bold text-italian-brown mb-4">Cardápio</h2>
+      <div id="menu-tabs" class="flex flex-wrap gap-2 mb-4 border-b-2 border-amber-200 pb-3"></div>
+      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+    </section>
+  </main>
+
+  <footer id="carrinho-fixo" class="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-italian-red shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-4 flex flex-wrap items-center justify-between gap-4 z-40">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+      <span id="resumo-itens" class="text-italian-brown font-medium">0 itens</span>
+      <span class="text-lg font-bold text-italian-red">Total: R$ <span id="total-carrinho">0,00</span></span>
+    </div>
+    <button type="button" id="btn-enviar-pedido" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-italian-red text-white font-semibold shadow-lg hover:bg-italian-red-dark active:scale-[0.98] transition-all duration-200">
+      Fazer pedido
+    </button>
+  </footer>
+
+  <div id="modal-confirma" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+      <div class="px-6 py-5 border-b border-amber-200 flex items-center justify-between">
+        <h2 class="font-display text-xl font-bold text-italian-brown">Pedido enviado</h2>
+        <button type="button" class="fechar-modal text-2xl text-stone-400 hover:text-stone-600 leading-none" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="px-6 py-5">
+        <p class="text-italian-brown">Seu pedido foi enviado para a cozinha. Em breve será atendido!</p>
+      </div>
+      <div class="px-6 py-4 bg-amber-50 flex justify-end">
+        <button type="button" id="btn-novo-pedido" class="px-6 py-2.5 rounded-xl bg-italian-red text-white font-semibold hover:bg-italian-red-dark transition">
+          Fazer outro pedido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/pedido.js"></script>
+</body>
+</html>
