@@ -12,3 +12,6 @@ Thumbs.db
 *.log
 .env
 .env.local
+
+# Config com dados sensíveis (use config.js.example como base)
+config.js

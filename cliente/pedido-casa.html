@@ -7,22 +7,22 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Pedido em casa - Italian Pizza</title>
-  <link rel="stylesheet" href="../css/form-inputs.css">
+  <link rel="stylesheet" href="../css/form-inputs.css?v=4">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../js/tailwind-config.js"></script>
+  <script src="../js/tailwind-config.js?v=4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen font-sans antialiased" style="background: linear-gradient(to bottom, #FFDBB8 0%, #E3A85B 100%); color: #612F1F;">
-  <header class="shadow-lg rounded-b-xl" style="background-color: #612F1F; border-bottom: 3px solid #7C422A;">
+  <header class="shadow-lg rounded-b-xl" style="background-color: #884429; border-bottom: 3px solid #D1A762;">
     <div class="max-w-2xl mx-auto px-4 py-4 flex items-center justify-center gap-3">
-      <div class="h-14 w-14 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center relative" style="background-color: #FFDBB8; border: 3px solid #E3A85B;">
+      <div class="h-14 w-14 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center relative" style="background-color: #884429; border: 3px solid #D1A762;">
         <img src="../logo_pizzaria.avif" alt="" class="h-full w-full object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
-        <span class="hidden absolute inset-0 flex items-center justify-center font-display font-bold text-[8px] leading-tight px-0.5 text-center" style="color: #612F1F;">Italian Pizza</span>
+        <span class="hidden absolute inset-0 flex items-center justify-center font-display font-bold text-[8px] leading-tight px-0.5 text-center" style="color: #fff;">Italian Pizza</span>
       </div>
       <div>
-        <h1 class="font-display text-xl font-bold" style="color: #fff;">Italian Pizza</h1>
-        <p class="text-sm" style="color: #E3A85B;">Pedido para entrega</p>
+        <h1 class="font-display text-xl font-bold" style="color: #FFFFFF;">Italian Pizza</h1>
+        <p class="text-sm" style="color: #D1A762;">Pedido para entrega</p>
       </div>
     </div>
   </header>
@@ -131,9 +131,9 @@
     </section>
   </main>
 
-  <div id="modal-sucesso" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
+  <div id="modal-sucesso" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-sucesso-titulo" aria-live="polite">
     <div class="rounded-2xl shadow-2xl max-w-sm w-full p-6 text-center" style="background-color: #fff; border: 2px solid #E3A85B;">
-      <p class="font-semibold text-lg mb-2" style="color: #008C45;">Pedido realizado!</p>
+      <p id="modal-sucesso-titulo" class="font-semibold text-lg mb-2" style="color: #008C45;">Pedido realizado!</p>
       <p class="text-sm" style="color: #7C422A;">Em breve você receberá a confirmação. Acompanhe pelo telefone informado.</p>
     </div>
   </div>

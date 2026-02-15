@@ -28,7 +28,7 @@
         <a href="admin-caixa-resumo.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Resumo mensal</a>
         <a href="admin-cardapio.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: #DE332E; color: white;">Cardápio</a>
         <a href="admin-pedidos-viagem.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Pedidos viagem</a>
-        <a href="login.html" id="btn-sair" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Sair</a>
+        <a href="login.html" id="btn-sair" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;" onclick="sessionStorage.removeItem('pizzaria_admin_logado'); window.location.replace('login.html'); return false;">Sair</a>
       </div>
     </div>
   </nav>

@@ -189,6 +189,20 @@
     }, 3000);
   }
 
+  function setButtonLoading(btn, loading) {
+    if (!btn) return;
+    if (loading) {
+      btn.disabled = true;
+      btn.dataset.originalText = btn.textContent;
+      btn.textContent = 'Aguarde…';
+      btn.classList.add('btn-loading');
+    } else {
+      btn.disabled = false;
+      btn.textContent = btn.dataset.originalText || btn.textContent;
+      btn.classList.remove('btn-loading');
+    }
+  }
+
   document.getElementById('btn-confirmar-cartao').addEventListener('click', function () {
     var forma = document.querySelector('input[name="forma"]:checked');
     var num = document.getElementById('cartao-numero').value.trim();
@@ -199,7 +213,12 @@
       alert('Preencha todos os dados do cartão.');
       return;
     }
-    enviarPedido(forma ? forma.value : 'credito', true, { numero: num, nome: nome, validade: val, cvv: cvv });
+    var btn = this;
+    setButtonLoading(btn, true);
+    setTimeout(function () {
+      enviarPedido(forma ? forma.value : 'credito', true, { numero: num, nome: nome, validade: val, cvv: cvv });
+      setButtonLoading(btn, false);
+    }, 300);
   });
 
   document.getElementById('btn-copiar-pix').addEventListener('click', function () {
@@ -208,11 +227,21 @@
   });
 
   document.getElementById('btn-confirmar-pix').addEventListener('click', function () {
-    enviarPedido('pix', true);
+    var btn = this;
+    setButtonLoading(btn, true);
+    setTimeout(function () {
+      enviarPedido('pix', true);
+      setButtonLoading(btn, false);
+    }, 300);
   });
 
   document.getElementById('btn-confirmar-entrega').addEventListener('click', function () {
+    var btn = this;
     var forma = document.querySelector('input[name="entrega-forma"]:checked');
-    enviarPedido(forma ? forma.value : 'entrega_debito', false);
+    setButtonLoading(btn, true);
+    setTimeout(function () {
+      enviarPedido(forma ? forma.value : 'entrega_debito', false);
+      setButtonLoading(btn, false);
+    }, 300);
   });
 })();

@@ -1,0 +1,24 @@
+/**
+ * Configuração do projeto – exemplo.
+ *
+ * Copie este arquivo para config.js e preencha com os valores reais.
+ * NUNCA commite config.js com chaves ou dados sensíveis.
+ *
+ * No front-end atual (estático), a "API" é o LocalStorage.
+ * Quando houver backend, use API_BASE_URL para todas as requisições.
+ */
+
+(function () {
+  'use strict';
+
+  window.APP_CONFIG = {
+    // Base URL da API (deixe vazio ou null para usar apenas LocalStorage)
+    API_BASE_URL: '',
+
+    // Nome da aplicação (usado em títulos e mensagens)
+    APP_NAME: 'Italian Pizza',
+
+    // Modo debug (true = mais logs no console)
+    DEBUG: false
+  };
+})();

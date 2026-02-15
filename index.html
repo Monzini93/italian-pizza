@@ -3,10 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Italian Pizza - Painel</title>
-  <script>window.location.replace('admin/login.html');</script>
+  <meta name="description" content="Italian Pizza – Sistema de pedidos e painel administrativo para pizzaria.">
+  <title>Italian Pizza – Painel</title>
+  <link rel="canonical" href="admin/login.html">
 </head>
 <body>
-  <p>Redirecionando para o login...</p>
+  <main>
+    <p>Redirecionando para o login do painel…</p>
+    <noscript>
+      <p>O JavaScript está desativado. <a href="admin/login.html">Acesse a página de login</a>.</p>
+    </noscript>
+  </main>
+  <script>
+    (function () {
+      try {
+        window.location.replace('admin/login.html');
+      } catch (e) {
+        window.location.href = 'admin/login.html';
+      }
+    })();
+  </script>
 </body>
 </html>

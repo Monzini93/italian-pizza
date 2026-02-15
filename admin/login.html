@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Italian Pizza Painel</title>
+  <meta name="description" content="Acesso ao painel administrativo – Italian Pizza.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Login – Italian Pizza Painel</title>
   <link rel="stylesheet" href="../css/form-inputs.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../js/tailwind-config.js"></script>
@@ -22,15 +24,15 @@
       <p class="text-sm mt-1" style="color: #7C422A;">Acesso ao painel administrativo</p>
     </div>
 
-    <form id="form-login" class="bg-white rounded-2xl shadow-xl border border-amber-200 p-6 space-y-4">
+    <form id="form-login" class="bg-white rounded-2xl shadow-xl border border-amber-200 p-6 space-y-4" onsubmit="return window.validarLogin(event);" aria-label="Formulário de login">
       <div>
         <label for="email" class="block text-sm font-semibold mb-2" style="color: #7C422A;">E-mail</label>
-        <input type="email" id="email" name="email" required placeholder="admin@admin.com"
+        <input type="email" id="email" name="email" required placeholder="Digite seu e-mail" autocomplete="off" aria-required="true"
           class="w-full px-4 py-3 rounded-xl border-2 border-amber-300 outline-none" style="border-color: #E3A85B;" />
       </div>
       <div>
         <label for="senha" class="block text-sm font-semibold mb-2" style="color: #7C422A;">Senha</label>
-        <input type="password" id="senha" name="senha" required placeholder="••••••••"
+        <input type="password" id="senha" name="senha" required placeholder="Digite sua senha" autocomplete="off" aria-required="true"
           class="w-full px-4 py-3 rounded-xl border-2 border-amber-300 outline-none" style="border-color: #E3A85B;" />
       </div>
       <p id="msg-erro" class="text-red-600 text-sm hidden"></p>

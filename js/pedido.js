@@ -26,7 +26,12 @@
       if (!cats[cat]) cats[cat] = [];
       cats[cat].push(item);
     });
-    return Object.keys(cats).sort();
+    const keys = Object.keys(cats);
+    return keys.sort((a, b) => {
+      if (a === 'Pizzas') return -1;
+      if (b === 'Pizzas') return 1;
+      return a.localeCompare(b);
+    });
   }
 
   function renderTabs() {

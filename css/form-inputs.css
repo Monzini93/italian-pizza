@@ -1,0 +1,33 @@
+/* Campos de formulário – padrão global (variáveis Italian Pizza) */
+:root {
+  --italian-branco: #ffffff;
+  --italian-marrom: #612F1F;
+  --italian-dourado: #E3A85B;
+  --italian-vermelho: #DE332E;
+  --italian-vermelho-sombra: rgba(222, 51, 46, 0.2);
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea {
+  background-color: var(--italian-branco) !important;
+  border: 2px solid var(--italian-dourado);
+  color: var(--italian-marrom);
+  transition: 0.2s ease;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--italian-vermelho);
+  box-shadow: 0 0 0 2px var(--italian-vermelho-sombra);
+}
+
+/* Estado de carregamento em botões */
+button:disabled,
+.btn-loading {
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: not-allowed;
+}
