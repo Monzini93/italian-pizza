@@ -100,9 +100,10 @@
     if (categoriaAtiva === null) categoriaAtiva = categorias[0];
     menuTabs.innerHTML = categorias.map(function (cat) {
       var ativa = cat === categoriaAtiva;
-      return '<button type="button" class="tab-categoria px-4 py-2.5 rounded-xl font-semibold transition ' +
-        (ativa ? 'bg-italian-red text-white shadow-md' : 'bg-white text-italian-brown border-2 border-amber-200 hover:border-italian-red hover:bg-amber-50') +
-        '" data-categoria="' + cat + '">' + cat + '</button>';
+      if (ativa) {
+        return '<button type="button" class="tab-categoria px-4 py-2.5 rounded-xl font-semibold transition shadow-md" style="background-color: #DE332E; color: white;" data-categoria="' + cat + '">' + cat + '</button>';
+      }
+      return '<button type="button" class="tab-categoria px-4 py-2.5 rounded-xl font-semibold transition border-2" style="background-color: #fff; color: #612F1F; border-color: #E3A85B;" data-categoria="' + cat + '">' + cat + '</button>';
     }).join('');
     menuTabs.querySelectorAll('.tab-categoria').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -116,7 +117,7 @@
   function renderMenu() {
     var cardapio = getCardapio();
     if (!Array.isArray(cardapio)) {
-      menuGrid.innerHTML = '<p class="text-italian-brown-light col-span-2">Carregando cardápio...</p>';
+      menuGrid.innerHTML = '<p class="col-span-2" style="color: #7C422A;">Carregando cardápio...</p>';
       return;
     }
     var categorias = getCategorias();
@@ -127,13 +128,15 @@
       : cardapio;
     var html = itens.map(function (item) {
       var qtd = carrinho.find(function (c) { return c.id === item.id; }) ? (carrinho.find(function (c) { return c.id === item.id; }).quantidade || 0) : 0;
-      var sel = qtd > 0 ? 'border-italian-red ring-2 ring-italian-red/30' : 'border-amber-200';
-      return '<div class="rounded-2xl bg-white shadow-lg border-2 overflow-hidden ' + sel + '">' +
-        '<div class="p-4"><div class="font-semibold text-italian-brown">' + item.nome + '</div>' +
-        '<div class="text-sm text-italian-brown-light mb-2">' + (item.descricao || '') + '</div>' +
-        '<div class="text-lg font-bold text-italian-red">R$ ' + item.preco.toFixed(2).replace('.', ',') + '</div></div>' +
-        '<div class="px-4 pb-4"><label class="text-sm text-italian-brown">Qtd</label> ' +
-        '<input type="number" min="0" value="' + qtd + '" data-id="' + item.id + '" data-preco="' + item.preco + '" data-nome="' + item.nome + '" class="w-20 ml-2 px-2 py-1.5 rounded-lg border-2 border-amber-300" /></div></div>';
+      var selecionado = qtd > 0;
+      var cardBorder = selecionado ? '2px solid #DE332E' : '2px solid #E3A85B';
+      var cardShadow = selecionado ? '0 0 0 3px rgba(222,51,46,0.3)' : 'none';
+      return '<div class="rounded-2xl bg-white shadow-lg overflow-hidden" style="border: ' + cardBorder + '; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05), ' + cardShadow + ';">' +
+        '<div class="p-4"><div class="font-semibold" style="color: #612F1F;">' + item.nome + '</div>' +
+        '<div class="text-sm mb-2" style="color: #7C422A;">' + (item.descricao || '') + '</div>' +
+        '<div class="text-lg font-bold" style="color: #DE332E;">R$ ' + item.preco.toFixed(2).replace('.', ',') + '</div></div>' +
+        '<div class="px-4 pb-4"><label class="text-sm" style="color: #612F1F;">Qtd</label> ' +
+        '<input type="number" min="0" value="' + qtd + '" data-id="' + item.id + '" data-preco="' + item.preco + '" data-nome="' + item.nome + '" class="w-20 ml-2 px-2 py-1.5 rounded-lg border-2 outline-none" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" /></div></div>';
     }).join('');
     menuGrid.innerHTML = html;
 

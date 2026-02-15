@@ -8,6 +8,6 @@ if (-not $status) {
     Write-Host "Nenhuma alteracao para enviar. Tudo ja esta commitado."
     exit 0
 }
-git commit -m "Logo na raiz, paleta do logo (marrom, vermelho, verde, dourado) em todo o site"
+git commit -m "Paleta do logo em pedido e pedido-casa (todas as etapas e telas)"
 git push origin main
 Write-Host "Push concluido."

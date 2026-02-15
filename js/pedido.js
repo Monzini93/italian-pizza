@@ -38,7 +38,10 @@
     if (categoriaAtiva === null) categoriaAtiva = categorias[0];
     menuTabs.innerHTML = categorias.map(cat => {
       const ativa = cat === categoriaAtiva;
-      return `<button type="button" class="tab-categoria px-4 py-2.5 rounded-xl font-semibold transition ${ativa ? 'bg-italian-red text-white shadow-md' : 'bg-white text-italian-brown border-2 border-amber-200 hover:border-italian-red hover:bg-amber-50'}" data-categoria="${cat}">${cat}</button>`;
+      if (ativa) {
+        return `<button type="button" class="tab-categoria px-4 py-2.5 rounded-xl font-semibold transition shadow-md" style="background-color: #DE332E; color: white;" data-categoria="${cat}">${cat}</button>`;
+      }
+      return `<button type="button" class="tab-categoria px-4 py-2.5 rounded-xl font-semibold transition border-2 hover:bg-amber-50" style="background-color: #fff; color: #612F1F; border-color: #E3A85B;" data-categoria="${cat}">${cat}</button>`;
     }).join('');
     menuTabs.querySelectorAll('.tab-categoria').forEach(btn => {
       btn.addEventListener('click', function () {
@@ -52,7 +55,7 @@
   function renderMenu() {
     const cardapio = getCardapio();
     if (!Array.isArray(cardapio)) {
-      menuGrid.innerHTML = '<p class="text-italian-brown-light col-span-2">Carregando cardápio...</p>';
+      menuGrid.innerHTML = '<p class="col-span-2" style="color: #7C422A;">Carregando cardápio...</p>';
       return;
     }
     const categorias = getCategorias();
@@ -64,17 +67,19 @@
     menuGrid.innerHTML = itens.map(item => {
       const qtd = carrinho.find(c => c.id === item.id && !c.observacao)?.quantidade || 0;
       const selecionado = qtd > 0;
+      const cardBorder = selecionado ? '2px solid #DE332E' : '2px solid #E3A85B';
+      const cardShadow = selecionado ? '0 0 0 3px rgba(222,51,46,0.3)' : 'none';
       return `
-        <div class="item-menu rounded-2xl bg-white shadow-lg border-2 overflow-hidden transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 ${selecionado ? 'border-italian-red ring-2 ring-italian-red/30' : 'border-amber-200'}">
+        <div class="item-menu rounded-2xl bg-white shadow-lg overflow-hidden transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5" style="border: ${cardBorder}; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05), ${cardShadow};">
           <div class="p-4">
-            <div class="font-semibold text-lg text-italian-brown mb-1">${item.nome}</div>
-            <div class="text-sm text-italian-brown-light mb-2 leading-snug">${item.descricao}</div>
-            <div class="text-xl font-bold text-italian-red">R$ ${item.preco.toFixed(2).replace('.', ',')}</div>
+            <div class="font-semibold text-lg mb-1" style="color: #612F1F;">${item.nome}</div>
+            <div class="text-sm mb-2 leading-snug" style="color: #7C422A;">${item.descricao}</div>
+            <div class="text-xl font-bold" style="color: #DE332E;">R$ ${item.preco.toFixed(2).replace('.', ',')}</div>
           </div>
           <div class="px-4 pb-4 flex items-center gap-3">
-            <label class="text-sm text-italian-brown font-medium">Qtd</label>
+            <label class="text-sm font-medium" style="color: #612F1F;">Qtd</label>
             <input type="number" min="0" value="${qtd}" data-id="${item.id}" data-preco="${item.preco}" data-nome="${item.nome}"
-              class="w-20 px-3 py-2 rounded-xl border-2 border-amber-300 bg-amber-50 text-center font-semibold text-italian-brown focus:ring-2 focus:ring-italian-red focus:border-italian-red outline-none" />
+              class="w-20 px-3 py-2 rounded-xl border-2 text-center font-semibold outline-none" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
           </div>
         </div>
       `;

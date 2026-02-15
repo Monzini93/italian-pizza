@@ -13,128 +13,128 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-gradient-to-b from-amber-50 to-italian-gold-light font-sans text-italian-brown antialiased">
-  <header class="bg-white shadow-lg border-b-4 border-italian-red">
+<body class="min-h-screen font-sans antialiased" style="background: linear-gradient(to bottom, #FFDBB8 0%, #E3A85B 100%); color: #612F1F;">
+  <header class="shadow-lg" style="background-color: #fff; border-bottom: 4px solid #DE332E;">
     <div class="max-w-2xl mx-auto px-4 py-4 flex items-center justify-center gap-3">
-      <div class="h-14 w-14 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-amber-100 border-2 border-amber-200 relative">
+      <div class="h-14 w-14 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center relative" style="background-color: #FFDBB8; border: 3px solid #E3A85B;">
         <img src="../logo_pizzaria.avif" alt="" class="h-full w-full object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
-        <span class="hidden absolute inset-0 flex items-center justify-center text-italian-brown font-display font-bold text-[8px] leading-tight px-0.5 text-center">Italian Pizza</span>
+        <span class="hidden absolute inset-0 flex items-center justify-center font-display font-bold text-[8px] leading-tight px-0.5 text-center" style="color: #612F1F;">Italian Pizza</span>
       </div>
       <div>
-        <h1 class="font-display text-xl font-bold text-italian-brown">Italian Pizza</h1>
-        <p class="text-italian-brown-light text-sm">Pedido para entrega</p>
+        <h1 class="font-display text-xl font-bold" style="color: #612F1F;">Italian Pizza</h1>
+        <p class="text-sm" style="color: #7C422A;">Pedido para entrega</p>
       </div>
     </div>
   </header>
 
   <main class="max-w-2xl mx-auto px-4 py-6 pb-32">
     <section id="step-dados" class="space-y-4">
-      <h2 class="font-display text-xl font-bold text-italian-brown">Seus dados</h2>
-      <div class="bg-white rounded-2xl shadow-xl border border-amber-200 p-5 space-y-4">
+      <h2 class="font-display text-xl font-bold" style="color: #612F1F;">Seus dados</h2>
+      <div class="rounded-2xl shadow-xl p-5 space-y-4" style="background-color: #fff; border: 2px solid #E3A85B;">
         <div>
-          <label class="block text-sm font-semibold text-italian-brown mb-1">Nome completo</label>
-          <input type="text" id="cliente-nome" required class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red outline-none" placeholder="Seu nome" />
+          <label class="block text-sm font-semibold mb-1" style="color: #612F1F;">Nome completo</label>
+          <input type="text" id="cliente-nome" required class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="Seu nome" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
         </div>
         <div>
-          <label class="block text-sm font-semibold text-italian-brown mb-1">Rua</label>
-          <input type="text" id="cliente-rua" required class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red outline-none" placeholder="Nome da rua" />
+          <label class="block text-sm font-semibold mb-1" style="color: #612F1F;">Rua</label>
+          <input type="text" id="cliente-rua" required class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="Nome da rua" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-sm font-semibold text-italian-brown mb-1">Número</label>
-            <input type="text" id="cliente-numero" required class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red outline-none" placeholder="Nº" />
+            <label class="block text-sm font-semibold mb-1" style="color: #612F1F;">Número</label>
+            <input type="text" id="cliente-numero" required class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="Nº" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
           </div>
           <div>
-            <label class="block text-sm font-semibold text-italian-brown mb-1">CEP</label>
-            <input type="text" id="cliente-cep" required class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red outline-none" placeholder="00000-000" maxlength="9" />
+            <label class="block text-sm font-semibold mb-1" style="color: #612F1F;">CEP</label>
+            <input type="text" id="cliente-cep" required class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="00000-000" maxlength="9" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
           </div>
         </div>
         <div>
-          <label class="block text-sm font-semibold text-italian-brown mb-1">Telefone</label>
-          <input type="tel" id="cliente-telefone" required class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red outline-none" placeholder="(00) 00000-0000" />
+          <label class="block text-sm font-semibold mb-1" style="color: #612F1F;">Telefone</label>
+          <input type="tel" id="cliente-telefone" required class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="(00) 00000-0000" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
         </div>
       </div>
       <button type="button" id="btn-ir-cardapio" class="w-full py-3.5 rounded-xl font-semibold shadow-lg transition" style="background-color: #DE332E; color: white;">Continuar para o cardápio</button>
     </section>
 
     <section id="step-cardapio" class="hidden">
-      <h2 class="font-display text-xl font-bold text-italian-brown mb-4">Cardápio</h2>
-      <div id="menu-tabs" class="flex flex-wrap gap-2 mb-4 border-b-2 border-amber-200 pb-3"></div>
+      <h2 class="font-display text-xl font-bold mb-4" style="color: #612F1F;">Cardápio</h2>
+      <div id="menu-tabs" class="flex flex-wrap gap-2 mb-4 pb-3" style="border-bottom: 2px solid #E3A85B;"></div>
       <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
       <div class="mt-6">
-        <label for="pedido-observacoes" class="block text-sm font-semibold text-italian-brown mb-2">Observações do pedido</label>
-        <textarea id="pedido-observacoes" rows="3" class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 focus:ring-2 focus:ring-italian-red focus:border-italian-red outline-none resize-none" placeholder="Ex: sem cebola, ponto da pizza bem assada, entregar na portaria..."></textarea>
+        <label for="pedido-observacoes" class="block text-sm font-semibold mb-2" style="color: #612F1F;">Observações do pedido</label>
+        <textarea id="pedido-observacoes" rows="3" class="w-full px-4 py-2.5 rounded-xl border-2 outline-none resize-none" placeholder="Ex: sem cebola, ponto da pizza bem assada, entregar na portaria..." style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;"></textarea>
       </div>
       <div class="mt-4 flex gap-3">
-        <button type="button" id="btn-voltar-dados" class="py-2.5 px-4 rounded-xl border-2 border-italian-brown text-italian-brown font-medium">Voltar</button>
-        <button type="button" id="btn-ir-pagamento" class="flex-1 py-3.5 rounded-xl bg-italian-red text-white font-semibold shadow-lg hover:bg-italian-red-dark transition">Finalizar pedido e ir ao pagamento</button>
+        <button type="button" id="btn-voltar-dados" class="py-2.5 px-4 rounded-xl border-2 font-medium" style="border-color: #7C422A; color: #7C422A;">Voltar</button>
+        <button type="button" id="btn-ir-pagamento" class="flex-1 py-3.5 rounded-xl font-semibold shadow-lg transition" style="background-color: #DE332E; color: white;">Finalizar pedido e ir ao pagamento</button>
       </div>
     </section>
 
     <section id="step-pagamento" class="hidden space-y-6">
-      <h2 class="font-display text-xl font-bold text-italian-brown">Pagamento</h2>
-      <p class="text-italian-brown-light">Total do pedido: <strong id="pag-total" class="text-italian-red text-lg">R$ 0,00</strong></p>
+      <h2 class="font-display text-xl font-bold" style="color: #612F1F;">Pagamento</h2>
+      <p style="color: #7C422A;">Total do pedido: <strong id="pag-total" class="text-lg" style="color: #DE332E;">R$ 0,00</strong></p>
 
-      <div class="bg-white rounded-2xl shadow-xl border border-amber-200 p-5 space-y-3">
-        <p class="font-semibold text-italian-brown mb-2">Como deseja pagar?</p>
-        <label class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 cursor-pointer hover:bg-amber-50 payment-opt">
-          <input type="radio" name="forma" value="credito" class="w-4 h-4 text-italian-red" checked />
+      <div class="rounded-2xl shadow-xl p-5 space-y-3" style="background-color: #fff; border: 2px solid #E3A85B;">
+        <p class="font-semibold mb-2" style="color: #612F1F;">Como deseja pagar?</p>
+        <label class="flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer payment-opt" style="border-color: #E3A85B; color: #612F1F;">
+          <input type="radio" name="forma" value="credito" class="w-4 h-4" checked style="accent-color: #DE332E;" />
           <span>Crédito (online)</span>
         </label>
-        <label class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 cursor-pointer hover:bg-amber-50 payment-opt">
-          <input type="radio" name="forma" value="debito" class="w-4 h-4 text-italian-red" />
+        <label class="flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer payment-opt" style="border-color: #E3A85B; color: #612F1F;">
+          <input type="radio" name="forma" value="debito" class="w-4 h-4" style="accent-color: #DE332E;" />
           <span>Débito (online)</span>
         </label>
-        <label class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 cursor-pointer hover:bg-amber-50 payment-opt">
-          <input type="radio" name="forma" value="pix" class="w-4 h-4 text-italian-red" />
+        <label class="flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer payment-opt" style="border-color: #E3A85B; color: #612F1F;">
+          <input type="radio" name="forma" value="pix" class="w-4 h-4" style="accent-color: #DE332E;" />
           <span>PIX</span>
         </label>
-        <label class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 cursor-pointer hover:bg-amber-50 payment-opt">
-          <input type="radio" name="forma" value="entrega" class="w-4 h-4 text-italian-red" />
+        <label class="flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer payment-opt" style="border-color: #E3A85B; color: #612F1F;">
+          <input type="radio" name="forma" value="entrega" class="w-4 h-4" style="accent-color: #DE332E;" />
           <span>Pagamento na entrega</span>
         </label>
       </div>
 
-      <div id="bloco-cartao" class="hidden bg-white rounded-2xl border border-amber-200 p-5 space-y-4">
-        <p class="font-semibold text-italian-brown">Dados do cartão</p>
-        <input type="text" id="cartao-numero" class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 outline-none" placeholder="Número do cartão" maxlength="19" />
-        <input type="text" id="cartao-nome" class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 outline-none" placeholder="Nome impresso no cartão" />
+      <div id="bloco-cartao" class="hidden rounded-2xl p-5 space-y-4" style="background-color: #fff; border: 2px solid #E3A85B;">
+        <p class="font-semibold" style="color: #612F1F;">Dados do cartão</p>
+        <input type="text" id="cartao-numero" class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="Número do cartão" maxlength="19" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
+        <input type="text" id="cartao-nome" class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="Nome impresso no cartão" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
         <div class="grid grid-cols-2 gap-3">
-          <input type="text" id="cartao-validade" class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 outline-none" placeholder="Validade (MM/AA)" maxlength="5" />
-          <input type="text" id="cartao-cvv" class="w-full px-4 py-2.5 rounded-xl border-2 border-amber-300 outline-none" placeholder="CVV" maxlength="4" />
+          <input type="text" id="cartao-validade" class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="Validade (MM/AA)" maxlength="5" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
+          <input type="text" id="cartao-cvv" class="w-full px-4 py-2.5 rounded-xl border-2 outline-none" placeholder="CVV" maxlength="4" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" />
         </div>
-        <button type="button" id="btn-confirmar-cartao" class="w-full py-3 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark">Efetuar pagamento</button>
+        <button type="button" id="btn-confirmar-cartao" class="w-full py-3 rounded-xl font-semibold" style="background-color: #008C45; color: white;">Efetuar pagamento</button>
       </div>
 
-      <div id="bloco-pix" class="hidden bg-white rounded-2xl border border-amber-200 p-5 space-y-4">
-        <p class="font-semibold text-italian-brown">Pague via PIX</p>
-        <p class="text-sm text-italian-brown-light">Copie o código abaixo e efetue o pagamento no app do seu banco.</p>
-        <div class="bg-stone-100 rounded-xl p-4 break-all text-sm font-mono" id="codigo-pix">00020126580014br.gov.bcb.pix0136a1b2c3d4-e5f6-7890-abcd-ef1234567890520400005303986540410.005802BR5925ITALIAN PIZZA LTDA6009SAO PAULO62070503***6304</div>
-        <button type="button" id="btn-copiar-pix" class="w-full py-2 rounded-xl border-2 border-italian-red text-italian-red font-medium">Copiar código PIX</button>
-        <button type="button" id="btn-confirmar-pix" class="w-full py-3 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark">Já efetuei o PIX - Confirmar pedido</button>
+      <div id="bloco-pix" class="hidden rounded-2xl p-5 space-y-4" style="background-color: #fff; border: 2px solid #E3A85B;">
+        <p class="font-semibold" style="color: #612F1F;">Pague via PIX</p>
+        <p class="text-sm" style="color: #7C422A;">Copie o código abaixo e efetue o pagamento no app do seu banco.</p>
+        <div class="rounded-xl p-4 break-all text-sm font-mono" id="codigo-pix" style="background-color: #FFDBB8; color: #612F1F;">00020126580014br.gov.bcb.pix0136a1b2c3d4-e5f6-7890-abcd-ef1234567890520400005303986540410.005802BR5925ITALIAN PIZZA LTDA6009SAO PAULO62070503***6304</div>
+        <button type="button" id="btn-copiar-pix" class="w-full py-2 rounded-xl border-2 font-medium" style="border-color: #DE332E; color: #DE332E;">Copiar código PIX</button>
+        <button type="button" id="btn-confirmar-pix" class="w-full py-3 rounded-xl font-semibold" style="background-color: #008C45; color: white;">Já efetuei o PIX - Confirmar pedido</button>
       </div>
 
-      <div id="bloco-entrega" class="hidden bg-white rounded-2xl border border-amber-200 p-5 space-y-4">
-        <p class="font-semibold text-italian-brown">Pagamento na entrega</p>
-        <label class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 cursor-pointer">
-          <input type="radio" name="entrega-forma" value="entrega_credito" class="w-4 h-4 text-italian-red" />
+      <div id="bloco-entrega" class="hidden rounded-2xl p-5 space-y-4" style="background-color: #fff; border: 2px solid #E3A85B;">
+        <p class="font-semibold" style="color: #612F1F;">Pagamento na entrega</p>
+        <label class="flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer" style="border-color: #E3A85B; color: #612F1F;">
+          <input type="radio" name="entrega-forma" value="entrega_credito" class="w-4 h-4" style="accent-color: #DE332E;" />
           <span>Crédito na entrega</span>
         </label>
-        <label class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 cursor-pointer">
-          <input type="radio" name="entrega-forma" value="entrega_debito" class="w-4 h-4 text-italian-red" checked />
+        <label class="flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer" style="border-color: #E3A85B; color: #612F1F;">
+          <input type="radio" name="entrega-forma" value="entrega_debito" class="w-4 h-4" checked style="accent-color: #DE332E;" />
           <span>Débito na entrega</span>
         </label>
-        <button type="button" id="btn-confirmar-entrega" class="w-full py-3 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark">Efetuar pedido</button>
+        <button type="button" id="btn-confirmar-entrega" class="w-full py-3 rounded-xl font-semibold" style="background-color: #008C45; color: white;">Efetuar pedido</button>
       </div>
 
-      <button type="button" id="btn-voltar-cardapio" class="text-italian-brown-light underline text-sm">Voltar ao cardápio</button>
+      <button type="button" id="btn-voltar-cardapio" class="underline text-sm" style="color: #7C422A;">Voltar ao cardápio</button>
     </section>
   </main>
 
   <div id="modal-sucesso" class="fixed inset-0 bg-black/50 z-50 items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 text-center">
-      <p class="text-italian-green font-semibold text-lg mb-2">Pedido realizado!</p>
-      <p class="text-italian-brown-light text-sm">Em breve você receberá a confirmação. Acompanhe pelo telefone informado.</p>
+    <div class="rounded-2xl shadow-2xl max-w-sm w-full p-6 text-center" style="background-color: #fff; border: 2px solid #E3A85B;">
+      <p class="font-semibold text-lg mb-2" style="color: #008C45;">Pedido realizado!</p>
+      <p class="text-sm" style="color: #7C422A;">Em breve você receberá a confirmação. Acompanhe pelo telefone informado.</p>
     </div>
   </div>
 
