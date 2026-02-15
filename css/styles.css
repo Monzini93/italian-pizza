@@ -110,6 +110,24 @@ h1, h2, h3 {
   border-color: var(--cor-primaria);
 }
 
+/* Campos de formulário - padrão global (fundo branco, borda e foco) */
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea {
+  background-color: #ffffff !important;
+  border: 2px solid #E3A85B;
+  color: #612F1F;
+  transition: 0.2s ease;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #DE332E;
+  box-shadow: 0 0 0 2px rgba(222, 51, 46, 0.2);
+}
+
 /* Navegação Admin */
 .nav-admin {
   background: var(--cor-fundo-escuro);

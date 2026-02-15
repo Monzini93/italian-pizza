@@ -88,7 +88,12 @@
       if (!cats[cat]) cats[cat] = [];
       cats[cat].push(item);
     });
-    return Object.keys(cats).sort();
+    var keys = Object.keys(cats);
+    return keys.sort(function (a, b) {
+      if (a === 'Pizzas') return -1;
+      if (b === 'Pizzas') return 1;
+      return a.localeCompare(b);
+    });
   }
 
   function renderTabs() {
@@ -136,7 +141,7 @@
         '<div class="text-sm mb-2" style="color: #7C422A;">' + (item.descricao || '') + '</div>' +
         '<div class="text-lg font-bold" style="color: #DE332E;">R$ ' + item.preco.toFixed(2).replace('.', ',') + '</div></div>' +
         '<div class="px-4 pb-4"><label class="text-sm" style="color: #612F1F;">Qtd</label> ' +
-        '<input type="number" min="0" value="' + qtd + '" data-id="' + item.id + '" data-preco="' + item.preco + '" data-nome="' + item.nome + '" class="w-20 ml-2 px-2 py-1.5 rounded-lg border-2 outline-none" style="border-color: #E3A85B; background-color: #FFDBB8; color: #612F1F;" /></div></div>';
+        '<input type="number" min="0" value="' + qtd + '" data-id="' + item.id + '" data-preco="' + item.preco + '" data-nome="' + item.nome + '" class="w-20 ml-2 px-2 py-1.5 rounded-lg border-2 outline-none" style="border-color: #E3A85B; background-color: #fff; color: #612F1F;" /></div></div>';
     }).join('');
     menuGrid.innerHTML = html;
 
