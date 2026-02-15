@@ -7,7 +7,7 @@
   <script src="../js/tailwind-config.js"></script>
   <script>
     if (typeof tailwind === 'undefined') { tailwind = {}; }
-    tailwind.config = tailwind.config || { theme: { extend: { fontFamily: { sans: ['Outfit','system-ui','sans-serif'], display: ['Playfair Display','serif'] }, colors: { italian: { red: '#dc2626', 'red-dark': '#b91c1c', green: '#16a34a', 'green-dark': '#15803d', brown: '#78350f', 'brown-light': '#92400e', gold: '#fbbf24', 'gold-light': '#fef3c7' } } } } };
+    tailwind.config = tailwind.config || { theme: { extend: { fontFamily: { sans: ['Outfit','system-ui','sans-serif'], display: ['Playfair Display','serif'] }, colors: { italian: { red: '#DE332E', 'red-dark': '#c42a26', green: '#008C45', 'green-dark': '#006b38', brown: '#612F1F', 'brown-light': '#7C422A', gold: '#E3A85B', 'gold-light': '#FFDBB8' } } } } };
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,10 @@
 <body class="min-h-screen bg-gradient-to-b from-amber-50 to-italian-gold-light font-sans text-italian-brown antialiased">
   <header class="bg-white shadow-lg border-b-4 border-italian-red">
     <div class="max-w-4xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <img src="../assets/logo_pizzaria.avif" alt="Italian Pizza" class="h-20 w-20 sm:h-24 sm:w-24 object-contain rounded-full flex-shrink-0" />
+      <div class="h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-amber-100 border-2 border-amber-200 relative">
+        <img src="../logo_pizzaria.avif" alt="" class="h-full w-full object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+        <span class="hidden absolute inset-0 flex items-center justify-center text-italian-brown font-display font-bold text-xs sm:text-sm leading-tight px-0.5 text-center">Italian Pizza</span>
+      </div>
       <div class="text-center sm:text-left">
         <h1 class="font-display text-2xl sm:text-3xl font-bold text-italian-brown">Italian Pizza</h1>
         <p class="mt-0.5 text-italian-brown-light text-sm">Monte seu pedido pela mesa</p>
@@ -45,7 +48,7 @@
       <span id="resumo-itens" class="text-italian-brown font-medium">0 itens</span>
       <span class="text-lg font-bold text-italian-red">Total: R$ <span id="total-carrinho">0,00</span></span>
     </div>
-    <button type="button" id="btn-enviar-pedido" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold shadow-lg active:scale-[0.98] transition-all duration-200" style="background-color: #dc2626; color: white;">
+    <button type="button" id="btn-enviar-pedido" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold shadow-lg active:scale-[0.98] transition-all duration-200" style="background-color: #DE332E; color: white;">
       Fazer pedido
     </button>
   </footer>

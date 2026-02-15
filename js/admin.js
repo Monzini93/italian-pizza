@@ -32,13 +32,14 @@
 
     mesasGrid.innerHTML = mesas.map(m => {
       const temPedido = comPedido.has(m.id);
+      const cardStyle = temPedido ? 'border-color: #DE332E; background-color: #FFDBB8;' : 'border-color: #E3A85B; background-color: white;';
       return `
-        <div class="mesa-card rounded-2xl border-2 p-4 text-center cursor-pointer transition hover:shadow-lg ${temPedido ? 'border-italian-red bg-amber-50' : 'border-amber-200 bg-white'}" data-id="${m.id}">
-          <div class="font-display text-2xl font-bold text-italian-red">${m.numero}</div>
-          <div class="text-italian-brown text-sm">Mesa</div>
-          ${temPedido ? '<span class="inline-block mt-2 px-2 py-0.5 rounded-full text-xs font-medium bg-italian-red text-white">Com pedido</span>' : ''}
+        <div class="mesa-card rounded-2xl border-2 p-4 text-center cursor-pointer transition hover:shadow-lg" style="${cardStyle}" data-id="${m.id}">
+          <div class="font-display text-2xl font-bold" style="color: #DE332E;">${m.numero}</div>
+          <div class="text-sm" style="color: #7C422A;">Mesa</div>
+          ${temPedido ? '<span class="inline-block mt-2 px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: #DE332E; color: white;">Com pedido</span>' : ''}
           <div class="mt-3 flex gap-2 justify-center">
-            ${!temPedido ? `<button type="button" class="px-2 py-1 rounded-lg text-sm border-2 border-italian-brown text-italian-brown hover:bg-amber-100" data-edit="${m.id}">Editar</button>` : ''}
+            ${!temPedido ? `<button type="button" class="px-2 py-1 rounded-lg text-sm border-2 hover:bg-amber-100" style="border-color: #7C422A; color: #7C422A;" data-edit="${m.id}">Editar</button>` : ''}
             <button type="button" class="px-2 py-1 rounded-lg text-sm bg-red-600 text-white hover:bg-red-700" data-del="${m.id}">Apagar</button>
           </div>
         </div>
@@ -99,12 +100,12 @@
       const subtotal = i.preco * (i.quantidade || 1);
       return `
         <li class="flex justify-between items-center py-3 gap-4">
-          <span class="font-semibold text-italian-red w-10">${i.quantidade || 1}x</span>
-          <span class="flex-1 text-italian-brown">${i.nome}</span>
-          <span class="font-semibold text-italian-brown">R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+          <span class="font-semibold w-10" style="color: #DE332E;">${i.quantidade || 1}x</span>
+          <span class="flex-1" style="color: #7C422A;">${i.nome}</span>
+          <span class="font-semibold" style="color: #7C422A;">R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
         </li>
       `;
-    }).join('') || '<li class="py-3 text-italian-brown-light">Nenhum item nesta mesa.</li>';
+    }).join('') || '<li class="py-3" style="color: #7C422A;">Nenhum item nesta mesa.</li>';
     contaTotal.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
     contaMesaSection.classList.remove('hidden');
   }
@@ -160,7 +161,7 @@
 
     areaImpressao.innerHTML = `
       <div style="padding: 2rem; font-family: Outfit, sans-serif;">
-        <h1 style="text-align: center; color: #78350f;">Italian Pizza - Conta</h1>
+        <h1 style="text-align: center; color: #7C422A;">Italian Pizza - Conta</h1>
         <p style="text-align: center;"><strong>Mesa ${mesa ? mesa.numero : '-'}</strong></p>
         <p style="text-align: center; font-size: 0.9rem;">${new Date().toLocaleString('pt-BR')}</p>
         <table style="width: 100%; margin-top: 1.5rem; border-collapse: collapse;">

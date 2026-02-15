@@ -38,12 +38,12 @@
       }).join('<br/>');
       var forma = formas[p.formaPagamento] || p.formaPagamento || '—';
       var statusBadge = p.pago
-        ? '<span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-italian-green text-white">Pago</span>'
+        ? '<span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: #008C45; color: white;">Pago</span>'
         : '<span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-amber-500 text-white">Pagamento na entrega</span>';
       var obsHtml = (p.observacoes && p.observacoes.trim()) ? '<p class="mt-2 text-sm"><strong>Obs.:</strong> ' + String(p.observacoes).replace(/</g, '&lt;') + '</p>' : '';
       var btnBaixa = p.pago
-        ? '<button type="button" class="dar-baixa mt-3 px-4 py-2 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark" data-id="' + p.id + '">Dar baixa</button>'
-        : '<button type="button" class="dar-baixa mt-3 px-4 py-2 rounded-xl bg-italian-green text-white font-semibold hover:bg-italian-green-dark" data-id="' + p.id + '">Pago</button>';
+        ? '<button type="button" class="dar-baixa mt-3 px-4 py-2 rounded-xl font-semibold" style="background-color: #008C45; color: white;" data-id="' + p.id + '">Dar baixa</button>'
+        : '<button type="button" class="dar-baixa mt-3 px-4 py-2 rounded-xl font-semibold" style="background-color: #008C45; color: white;" data-id="' + p.id + '">Pago</button>';
       var end = p.cliente ? p.cliente.rua + ', ' + p.cliente.numero + ' — ' + p.cliente.cep : '—';
       return '<div class="bg-white rounded-2xl shadow-xl border border-amber-200 p-5">' +
         '<div class="flex flex-wrap justify-between items-start gap-2">' +

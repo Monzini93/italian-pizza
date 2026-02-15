@@ -54,7 +54,7 @@
                   <td class="p-3 text-italian-brown-light text-sm max-w-xs truncate">${item.descricao || '—'}</td>
                   <td class="p-3 text-right font-semibold text-italian-green">${formatarPreco(item.preco)}</td>
                   <td class="p-3 text-right">
-                    <button type="button" class="editar-item px-2 py-1 rounded-lg text-sm border border-italian-brown text-italian-brown hover:bg-amber-100 mr-1" data-id="${item.id}">Editar</button>
+                    <button type="button" class="editar-item px-2 py-1 rounded-lg text-sm border hover:bg-amber-100 mr-1" style="border-color: #7C422A; color: #7C422A;" data-id="${item.id}">Editar</button>
                     <button type="button" class="apagar-item px-2 py-1 rounded-lg text-sm bg-red-600 text-white hover:bg-red-700" data-id="${item.id}">Apagar</button>
                   </td>
                 </tr>

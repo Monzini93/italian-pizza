@@ -5,25 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedidos viagem - Italian Pizza Painel</title>
   <script src="../js/tailwind-config.js"></script>
+  <script>
+    if (typeof tailwind === 'undefined') { tailwind = {}; }
+    tailwind.config = tailwind.config || { theme: { extend: { fontFamily: { sans: ['Outfit','system-ui','sans-serif'], display: ['Playfair Display','serif'] }, colors: { italian: { red: '#DE332E', 'red-dark': '#c42a26', green: '#008C45', 'green-dark': '#006b38', brown: '#612F1F', 'brown-light': '#7C422A', gold: '#E3A85B', 'gold-light': '#FFDBB8' } } } } };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-amber-50 font-sans text-italian-brown antialiased">
+<body class="min-h-screen bg-amber-50 font-sans antialiased" style="color: #7C422A;">
   <script src="../js/auth.js"></script>
-  <nav class="bg-italian-brown text-white shadow-lg">
+  <nav class="shadow-lg" style="background-color: #612F1F; color: white;">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <img src="../assets/logo_pizzaria.avif" alt="Italian Pizza" class="h-10 w-10 object-contain rounded-full" />
-        <h1 class="font-display text-xl font-bold">Italian Pizza – Painel</h1>
+        <div class="h-10 w-10 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center relative" style="background-color: #FFDBB8; border: 2px solid #E3A85B;">
+          <img src="../logo_pizzaria.avif" alt="" class="h-full w-full object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+          <span class="hidden absolute inset-0 flex items-center justify-center font-display font-bold text-[6px] leading-tight" style="color: #7C422A;">IP</span>
+        </div>
+        <h1 class="font-display text-xl font-bold" style="color: white;">Italian Pizza – Painel</h1>
       </div>
       <div class="flex gap-2 flex-wrap items-center">
-        <a href="admin.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Mesas e Pedidos</a>
-        <a href="admin-caixa.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Conferência de Caixa</a>
-        <a href="admin-caixa-resumo.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Resumo mensal</a>
-        <a href="admin-cardapio.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-medium">Cardápio</a>
-        <a href="admin-pedidos-viagem.html" class="px-4 py-2 rounded-xl bg-italian-red font-medium">Pedidos viagem</a>
-        <a href="login.html" id="btn-sair" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-red-600/80 font-medium">Sair</a>
+        <a href="admin.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Mesas e Pedidos</a>
+        <a href="admin-caixa.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Conferência de Caixa</a>
+        <a href="admin-caixa-resumo.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Resumo mensal</a>
+        <a href="admin-cardapio.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Cardápio</a>
+        <a href="admin-pedidos-viagem.html" class="px-4 py-2 rounded-xl font-medium" style="background-color: #DE332E; color: white;">Pedidos viagem</a>
+        <a href="login.html" id="btn-sair" class="px-4 py-2 rounded-xl font-medium" style="background-color: rgba(255,255,255,0.2); color: white;">Sair</a>
       </div>
     </div>
   </nav>

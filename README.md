@@ -79,8 +79,8 @@ Após publicar o projeto (ex.: Vercel), use os mesmos endereços base para clien
 │   ├── admin-cardapio.js
 │   └── admin-pedidos-viagem.js
 │
-└── assets/
-    └── logo_pizzaria.avif     # Logo (coloque o arquivo aqui)
+├── logo_pizzaria.avif         # Logo da empresa (na raiz do projeto)
+└── assets/                    # Outros arquivos estáticos (opcional)
 ```
 
 ---
@@ -88,7 +88,7 @@ Após publicar o projeto (ex.: Vercel), use os mesmos endereços base para clien
 ## Como rodar localmente
 
 1. Clone ou baixe o projeto.
-2. Coloque a imagem **logo_pizzaria.avif** na pasta **assets/**.
+2. Coloque a imagem **logo_pizzaria.avif** na **raiz do projeto** (mesma pasta do `index.html`).
 3. Sirva a pasta por um servidor HTTP (evita problemas de CORS com LocalStorage em alguns navegadores):
    - **VS Code:** extensão "Live Server" e "Open with Live Server" na raiz do projeto.
    - **Node:** `npx serve .` na raiz.
